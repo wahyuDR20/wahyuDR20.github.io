@@ -1,0 +1,40 @@
+
+
+html{
+     background-color: #56baed;
+}
+body {
+  	font-family: Gotham, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1em;
+
+}
+
+.box *:last-child {
+    margin-bottom: 0;
+
+}
+
+.box-4 {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    position: absolute;
+ /*   width: 90%;*/
+    margin: 0px 0px 0px 0px;
+}
+
+.box-content {
+    background: none repeat scroll 0 0 #FFFFFF;
+    background-color: #ffffff;
+    padding: 55px 55px 45px 55px;
+    position: absolute;
+    z-index: 1;
+}
+.box-4:after {
+    border-radius: 0 0 50% 50% / 0 0 20px 20px;
+    bottom: 0;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    content: "";
+    height: 20px;
+    left: 10px;
+    position: absolute;
+    right: 10px;
+}
