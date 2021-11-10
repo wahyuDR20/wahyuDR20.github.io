@@ -1,1 +1,504 @@
+<!-- <?php
+session_start();
+?> -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Online Quiz</title>
+<!---include css-->
 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Expires" content="0"> 
+
+        <meta name="author" content="WRTeam">
+        <meta name="copyright" content="WRTeam.in">
+        <meta name="keywords" content="Quiz online, Web Quiz">
+        <meta name="description" content="Make the perfect online quiz for any subject! Get the flexibility you need to get the answers you want. The Quiz Online power by WRteam Maker makes it easy for you to see what people know.">
+
+        <link href="assets/images/icon.png" rel="shortcut icon"/>
+        <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css"/> 
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Baloo&display=swap" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lobster" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"/>
+        <!-- DataTables -->
+        <link href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet">
+        <link href="assets/css/animate.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/intlTelInput.css" rel="stylesheet" type="text/css">
+        <link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/css/login.css" rel="stylesheet" type="text/css"/>
+        
+        <script src="assets/js/jquery.min.js"></script> 
+        <script src="assets/js/bootstrap.js"></script>      
+        <script src="assets/js/sweetalert.min.js" ></script>
+        <script src="assets/js/jquery.redirect.js"></script> 
+        <script src="assets/js/jquery.blockUI.min.js" ></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/smooth-scroll.min.js"></script>
+        <script src="assets/js/progressbar.js"></script>  
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"></script>
+
+        <!-- DataTables -->
+        <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+
+        <script src="assets/js/constant.js"></script> 
+        <script src="assets/js/webquiz.js"></script>
+        <script src="assets/js/config.js"></script>         
+        <script src="assets/js/signup.js"></script> 
+        <script src="assets/js/intlTelInput.js"></script>
+
+      <!--   <?php include('include-css.php'); ?>    -->
+    </head>
+    <body class="bg-content-color">
+        <!-- Preloader -->
+        <div id="preloader"> 
+            <div id="loader-img">
+            </div>
+        </div>
+        <!--  -->
+      <!--   <?php include('header.php'); ?>   -->
+
+<header>
+    <div class="topbar">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-white text-bold">
+                    <ul id="topdownmenu">
+                      
+                            <li>
+                                <a class="add-cursor btn-modal" data-toggle="modal" data-target="#myModal" data-tab="login">Login</a>
+                            </li>
+                            <li>|</li>
+                            <li>
+                                <a class="add-cursor btn-modal" data-toggle="modal" data-target="#myModal" data-tab="register">Signup</a>
+                            </li>              
+                     
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar navbar-expand-md" id="navbar">    
+        <div class="container">
+            <a class="navbar-brand" href="index.php">
+                <img alt="webquiz" src="assets/images/quizlogo.png"/>
+            </a>
+            <button class="btn btn-primary navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars nav-btn-color" aria-hidden="true"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul id="menuactive" class="navbar-nav nav-margin-left text-uppercase">
+                    <li class="nav-item">
+                        <a class="nav-link" id="home" href="index.php">Home</a>
+                    </li>  
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Play Quiz
+                        </a>
+                       
+                    </li>
+            
+                    <li class="nav-item">
+                        <a class="nav-link" href="instruction.php">Instruction</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>        
+</header> 
+
+
+<!-- header -->
+        <div class="wapper">
+            <div class="theme-gradient">
+                <div class="container container-bg-set style-wave wave">
+                    <div class="row wow fadeInLeft top-margin1">  
+                        <div class="col-md-6 col-sm-12 text-left pt-100 text-white">                  
+                            <span class="lobster-font top-header-title-1">Want to Make Your Own Quiz</span><br>  
+                            <p class="text-justify">Make the perfect online quiz for any subject! Get the flexibility you need to get the answers you want. The Quiz Online power by Anak Indonesia Maker makes it easy for you to see what people know.</p>
+
+                            <div class="footer-download-section-style">   
+                                <a class="text-decoration-none app_link" target="_blank">
+                                    <img alt="android" src="assets/images/google-downloader@2x.png">
+                                </a>                    
+                                <a class="text-decoration-none ios_app_link" target="_blank">
+                                    <img alt="ios" src="assets/images/ios-downloader@2x.png">
+                                </a>   
+                            </div>
+                        </div>    
+                        <div class="col-md-6 col-sm-12 top-header-image"> 
+                            <img class="col-12" src="assets/images/screen.png" alt="image"> 
+                        </div>
+                    </div>
+                </div>          
+            </div>
+
+            <div class="container-bg-set container bg-content-color mb-40 mt-4">
+                <div class="row mt-4">
+                    <div class="col-md-12 title-border">
+                        <h2 class="text-center">Awesome Features</h2>
+                    </div>
+                </div>    
+                <div class="row pt-4">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="shadow-box feature-box wow zoomIn text-center">
+                            <img src="assets/images/quiz.png" alt="quiz" class="feature-image rounded mt-4">
+                            <p class="mt-2 mb-2 feature-title"><strong>Player vs Player Battle</strong></p>  
+                            <div class="hight-box">
+                                <p>A virtual quiz competition designed exclusively for learn with fun ,You have 25 seconds to answer each question. The faster you answer, the higher your score.</p>
+                            </div>        
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="shadow-box feature-box wow zoomIn text-center">
+                            <img src="assets/images/lifelines.png" alt="lifelines" class="feature-image rounded mt-4">
+                            <p class="mt-2 mb-2 feature-title"><strong>Life - Lines</strong></p>   
+                            <div class="hight-box">
+                                <p>lifelines is the most fun feature with quiz online game it will help the users to keep more active with learning.</p>
+                            </div>
+                        </div>                            
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="shadow-box feature-box wow zoomIn text-center">
+                            <img src="assets/images/selfchallenge.png" alt="selfchallenge" class="feature-image rounded mt-4">
+                            <p class="mt-2 mb-2 feature-title"><strong>Self Challenge</strong></p> 
+                            <div class="hight-box">
+                                <p>let's make fun with self-challenge with self-improvement, here user can make self challenge with time, category, questions and many more!</p>
+                            </div>    
+                        </div>                        
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="shadow-box feature-box wow zoomIn text-center">
+                            <img src="assets/images/userstatistics.png" alt="userstatistics" class="feature-image mt-4">
+                            <p class="mt-2 mb-2 feature-title"><strong>User Statistics</strong></p>   
+                            <div class="hight-box">
+                                <p>let's check with update stats with your performance and you can watch your strength and weakness.</p>
+                            </div> 
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+            <!--Play Quiz-->
+            <div class="bg-content-color-1">
+                <div class="container-bg-set container mb-40">
+                    <div class="row wow fadeInLeft">
+                        <div class="col-md-6 col-sm-12 py-4">
+                            <img src="assets/images/play-quiz.png" alt="playquiz" class="home-image">
+                        </div>
+                        <div class="col-md-6 col-sm-12 py-4">
+                            <p class="text-bold">Play Quiz</p>
+                            <h2 class="text-bold">Online Quiz is an amazing trivia game</h2>
+                            <div class="text-justify">
+                                <p>Many other games, General Knowledge Quiz gives you unlimited time to answer each question.</p>
+                                <p>With the super database of questions and always adding more, General Knowledge Quiz will test your Knowledge to the fullest.</p>
+                            </div>
+                            <div class="pt-4">
+                                <?php if (isset($_SESSION['name']) && isset($_SESSION['email'])) { ?>
+                                    <a class="text-decoration-none" href="play-quiz.php">    
+                                        <div class="shadow-box-button add-cursor pt-2 pb-2"> 
+                                            <div class="text-center text-bold text-uppercase">Play Now</div> 
+                                        </div>                         
+                                    </a>
+                                <?php } else { ?>                         
+                                    <a href="javascript:void(0)" class="text-decoration-none add-cursor btn-modal" data-toggle="modal" data-target="#myModal" data-tab="login">
+                                        <div class="shadow-box-button add-cursor pt-2 pb-2"> 
+                                            <div class="text-center text-bold text-uppercase">Play Now</div> 
+                                        </div>                         
+                                    </a>
+                                <?php } ?>                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Play Quiz-->
+            <!--Battle Quiz-->
+            <div class="bg-content-color">
+                <div class="container-bg-set container mb-40">
+                    <div class="row wow fadeInRight">
+                        <div class="col-md-6 col-sm-12 py-4">
+                            <p class="text-bold">Battle Quiz</p>
+                            <h2 class="text-bold">Battle Quiz is an amazing trivia game</h2>
+                            <div class="text-justify">
+                                <p>Many other games, General Knowledge Quiz gives you unlimited time to answer each question.</p>
+                                <p>With the super database of questions and always adding more, General Knowledge Quiz will test your Knowledge to the fullest.</p>
+                            </div>
+                            <div class="pt-4">
+                                <?php if (isset($_SESSION['name']) && isset($_SESSION['email'])) { ?>
+                                    <a class="text-decoration-none" href="find-opponent.php">     
+                                        <div class="shadow-box-button add-cursor pt-2 pb-2"> 
+                                            <div class="text-center text-bold text-uppercase">Battle Now</div> 
+                                        </div>                         
+                                    </a>
+                                <?php } else { ?>                         
+                                    <a href="javascript:void(0)" class="text-decoration-none add-cursor btn-modal" data-toggle="modal" data-target="#myModal" data-tab="login">
+                                        <div class="shadow-box-button add-cursor pt-2 pb-2"> 
+                                            <div class="text-center text-bold text-uppercase">Battle Now</div> 
+                                        </div>                         
+                                    </a>
+                                <?php } ?>                                     
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-12 py-4">
+                            <img src="assets/images/battle-quiz.png" alt="battlequiz" class="home-image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Battle Quiz-->
+            <!--Self Challenge-->
+            <div class="bg-content-color-1">
+                <div class="container-bg-set container mb-40">
+                    <div class="row wow fadeInLeft">
+                        <div class="col-md-6 col-sm-12 py-4">
+                            <img src="assets/images/self-challage.png" alt="selfchallage" class="home-image">
+                        </div>
+                        <div class="col-md-6 col-sm-12 py-4">
+                            <p class="text-bold">Self Challenge</p>
+                            <h2 class="text-bold">Self Challenge Quiz is an amazing trivia game</h2>
+                            <div class="text-justify">
+                                <p>Many other games, General Knowledge Quiz gives you unlimited time to answer each question.</p>
+                                <p>With the super database of questions and always adding more, General Knowledge Quiz will test your Knowledge to the fullest.</p>
+                            </div>
+                            <div class="pt-4">
+                                <?php if (isset($_SESSION['name']) && isset($_SESSION['email'])) { ?>
+                                    <a href="self-challenge.php" class="text-decoration-none">   
+                                        <div class="shadow-box-button add-cursor pt-2 pb-2"> 
+                                            <div class="text-center text-bold text-uppercase">Challenge Now</div> 
+                                        </div>                         
+                                    </a>
+                                <?php } else { ?>                         
+                                    <a href="javascript:void(0)" class="text-decoration-none add-cursor btn-modal" data-toggle="modal" data-target="#myModal" data-tab="login">
+                                        <div class="shadow-box-button add-cursor pt-2 pb-2"> 
+                                            <div class="text-center text-bold text-uppercase">Challenge Now</div> 
+                                        </div>                         
+                                    </a>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End Self Challenge-->
+
+            <div class="bg-content-color">
+                <div class="container-bg-set container mb-40">
+                    <div class="row py-4">
+                        <div class="col-md-12 col-12 title-border">
+                            <h2 class="text-center">Simple & Beautiful Interface</h2>   
+                        </div>
+                        <div class="col-md-12 col-12  pt-2">
+                            <p class="text-center">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                        </div>
+                    </div>    
+                    <div class="row pb-4 pt-4">
+                        <div class="col-md-12 col-12">
+                            <div id="slider-img" class="owl-carousel">
+
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-1.png" alt="slider">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-2.png" alt="slider">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-3.png" alt="slider">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-4.png" alt="slider">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-5.png" alt="slider">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-6.png" alt="slider">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-7.png" alt="slider">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-8.png" alt="slider">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-9.png" alt="slider">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-10.png" alt="slider">
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="shadow-effect">
+                                        <img class="img-circle" src="assets/images/Intersection-11.png" alt="slider">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+<!-- 
+        <?php include('footer.php'); ?>
+        -->
+
+        <footer class="page-footer font-small blue pt-4" id="gotofooter">
+            <div class="container text-center text-md-left">
+                <div class="row">
+                    <div class="col-md-4 text-md-left text-center">
+                        <h5 class="text-capitalized">Contact Us</h5>
+                        <p>Address: #E810<br>
+                          Tangerang,Banten<br>      
+                           Indonesia .
+                        </p>
+                        <p>Website: <a href="https://wrteam.in/" target="_blank" rel="noopener noreferrer">wrteam.in</a><br>
+                            Email:<email data-user="info" data-domain="wrteam.in"></email><br>      
+                        Phone: +919033646589
+                        </p>      
+                    </div>
+                    <div class="col-md-4">
+                        <h5 class="text-capitalized">Supports</h5>
+                        <ul class="list-unstyled">
+                            <li><a href="about.php">About Us</a></li>
+                            <li><a href="instruction.php">Instruction</a></li>
+                            <li><a href="privacy-policy.php">Privacy Policy</a></li>
+                            <li><a href="terms-and-conditions.php">Terms & Conditions</a></li>                   
+                        </ul>
+                    </div>            
+                    <div class="col-md-4">
+                        <h5 class="text-capitalized">Downloads</h5>
+                        <small>Online Quiz for Android or IOS</small>
+                        <div class="footer-download-section-style"> 
+                            <a class="app_link" target="_blank">
+                                <img alt="android" src="assets/images/google-downloader@2x.png" width="132px">
+                            </a>                    
+                            <a class="ios_app_link" target="_blank">
+                                <img alt="iod" src="assets/images/ios-downloader@2x.png" width="132px">
+                            </a>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright py-2">
+                <div  class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-sm-12">
+                            <a href="index.php"><img alt="quiz" src="assets/images/quizlogo.png" width="100"></a>
+                            © <?= date('Y') ?> Anak Indonesia. All Right Reserved  
+                        </div>
+                        <div class="col-md-6 col-sm-12">
+                            <div class="float-right SocialMedia">
+
+                            </div>                
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <a href="javascript:void(0);" id="return-to-top" onclick="topReturn();"><em class="fa fa-chevron-up"></em></a> 
+        </footer>
+
+        <div class="modal fade lang-model" id='editModal' tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+
+                    <div class="modal-body">
+                        <div class="text-center">  
+                            <div class="modal-title shadow-box-lang1 text-bold">
+                                <h5>Select Language</h5>
+                            </div>               
+                        </div>
+                        <form action="languages.php" class="form" id="langForm" method="GET">
+                            <div class="form-group row justify-content-center">
+                                <div class='col-md-12 col-sm-12 text-center' id="langData">
+                                </div>                             
+                            </div>                     
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <?php include('signup.php'); ?> 
+
+        <script type="text/javascript">
+        <?php if (isset($_SESSION['lang_id']) && !empty($_SESSION['lang_id'])) { ?>
+                    language_id = <?= $_SESSION['lang_id'] ?>;
+        <?php } else { ?>
+                    language_id = 0;
+        <?php } ?>
+
+        <?php if (isset($_SESSION['name']) && isset($_SESSION['id'])) { ?>
+                    user_id = <?= $_SESSION['id'] ?>;
+        <?php } else { ?>
+                    user_id = 0;
+        <?php } ?>
+        </script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                //Disable full page
+                $("body").on("contextmenu", function (e) {
+                    return false;
+                });
+            });
+            $(document).keydown(function (e) {
+                if (e.keyCode == 123) {
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+                    return false;
+                }
+                if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                    return false;
+                }
+                if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+                    return false;
+                }
+            });
+            $(document).ready(function () {
+                //Disable cut copy paste
+                $('body').bind('selectstart', function (e) {
+                    e.preventDefault();
+                });
+            });
+        </script>
+
+
+
+        <script src="assets/js/pages/index.js"></script>
+
+    </body>
+</html>
