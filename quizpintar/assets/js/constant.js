@@ -1,5 +1,5 @@
 "use strict"
-const DOMAIN_URL = "http://192.168.1.130/quiz_702/"; //admin panel url
+const DOMAIN_URL = "http://quiz.amtl.co.id/"; //admin panel url
 const JWT_KEY = "quiz_702";
 
 const QUIZ_V = "Quiz(1.0.1)";
